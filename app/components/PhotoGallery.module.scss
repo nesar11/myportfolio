@@ -1,0 +1,67 @@
+/* PhotoGallery.module.scss */
+
+.photoGallery {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.photoGallery h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #fdfc97;
+  // text-shadow: 2px 2px 5px rgb(4, 48, 247),
+  //              -2px -2px 5px rgb(253, 253, 253);
+}
+
+.galleryContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns per row */
+  gap: 15px; /* Add gap between grid items */
+  justify-items: center; /* Center the photoItem elements */
+  width: 80%;
+  margin: 0 auto; /* Center the galleryContainer itself */
+}
+
+.photoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 30px); /* Account for margin */
+  height: 300px; /* Ensure consistent height */
+  overflow: hidden;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ece0b8; 
+  color: #333; /* Text color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  margin: 15px; /* Add margin to each item */
+  // box-shadow: 0 0 20px rgba(243, 199, 3, 0.705), 0 0 50px rgba(243, 199, 3, 0.705), 0 0 100px rgba(243, 199, 3, 0.705);
+}
+
+.photoItem img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photoItem:hover {
+  background-color: rgb(248, 173, 146);
+  transform: scale(1.05); /* Slight zoom on hover for emphasis */
+}
+
+.photoItem img:hover {
+  transform: scale(1.2);
+}
+
+.photoTitle {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+  color: #333;
+}

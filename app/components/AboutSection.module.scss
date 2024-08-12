@@ -1,0 +1,75 @@
+.aboutSection {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  margin: 2rem auto; /* Center horizontally with auto margins */
+  max-width: 80%; /* Example max-width; adjust as needed */
+  background: linear-gradient(to bottom, #000000, #4b4b4b); /* Example gradient; adjust as needed */
+  padding: 2rem; /* Add padding for spacing */
+}
+
+.imageContainer {
+  flex: 1;
+  margin-bottom: 1rem; /* Adjust spacing between image and text content on mobile */
+  max-width: 50%; /* Limiting the width of the image container */
+  margin-right: 20px;
+}
+
+.imageContainer img {
+  width: 100%; /* Make the image fill its container */
+  height: auto; /* Maintain aspect ratio */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.38);
+}
+
+.textContent {
+  flex: 1; /* Adjusted to take up 50% of the width */
+  margin-top: 1rem; /* Add space between image and text content */
+  margin-left: 20px;
+}
+
+.textContent h1 {
+  font-size: 3rem; /* Increase font size for title */
+  margin-bottom: 1rem;
+  color: orange; /* Example text color; adjust as needed */
+
+}
+
+.textContent p {
+  line-height: 1.6;
+  color: #e7e7e7; /* Example text color; adjust as needed */
+ 
+
+}
+
+.readMoreButton {
+  margin-top: 1rem; /* Add space above the button */
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, rgb(247, 1, 1), rgb(2, 203, 253)); /* Example button color; adjust as needed */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.28);
+}
+
+.readMoreButton:hover {
+  background: linear-gradient(45deg, rgb(6, 1, 247), rgb(183, 0, 255));/* Gradient background for hover state */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.38);
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    flex-direction: column; /* Stack items vertically on mobile */
+    text-align: center; /* Center text content */
+  }
+
+  .imageContainer {
+    max-width: 100%; /* Allow image to take full width on mobile */
+  }
+
+  .textContent {
+    margin-top: 0; /* Remove margin between image and text content on mobile */
+  }
+}

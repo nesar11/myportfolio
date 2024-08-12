@@ -1,0 +1,66 @@
+/* Slide.module.scss */
+
+.slide {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: -70px;
+}
+
+.fullWidthVideo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.35); /* Adjust the overlay color and opacity as needed */
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.videoText {
+  margin: 10px 0;
+  
+  h1 {
+    font-size: 8rem; /* Corrected font size */
+  }
+  
+  p {
+    font-size: 2rem; /* Increased font size */
+  }
+}
+
+.readMoreButton {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, rgb(6, 1, 247), rgb(183, 0, 255)); /* Gradient background */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.28);
+}
+
+.readMoreButton:hover {
+  background: linear-gradient(45deg, rgb(4, 2, 170), rgb(130, 1, 180)); /* Gradient background for hover state */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.38);
+}
