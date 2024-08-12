@@ -11,7 +11,7 @@ const ServiceSection = () => {
       </div>
       <div className={styles.service}>
         <h2>Open Source Integration</h2>
-        <p> It's offer businesses the ability to harness the power of open source technologies and create customized, scalable, and cost-effective solutions. Such as, ERP, CRM, Cloud Storage, WordPress, Magengto</p>
+        <p> It&apos;s offer businesses the ability to harness the power of open source technologies and create customized, scalable, and cost-effective solutions. Such as, ERP, CRM, Cloud Storage, WordPress, Magengto</p>
         <button className={styles.readMoreButton}>Learn More</button>
       </div>
       <div className={styles.service}>
@@ -31,12 +31,12 @@ const ServiceSection = () => {
       </div>
       <div className={styles.service}>
         <h2>UI & UX</h2>
-        <p>software design that focus on enhancing the usability, effectiveness, and overall satisfaction of users interacting with a digital product, such as a website, mobile app, or software application.</p>
+        <p>Software design that focuses on enhancing the usability, effectiveness, and overall satisfaction of users interacting with a digital product, such as a website, mobile app, or software application.</p>
         <button className={styles.readMoreButton}>Learn More</button>
       </div>
       <div className={styles.service}>
         <h2>QA Engineering</h2>
-        <p>vital role in the software development lifecycle by designing and implementing test plans, identifying and reporting bugs, and working closely with developers to resolve issues</p>
+        <p>Plays a vital role in the software development lifecycle by designing and implementing test plans, identifying and reporting bugs, and working closely with developers to resolve issues.</p>
         <button className={styles.readMoreButton}>Learn More</button>
       </div>
       <div className={styles.service}>
@@ -46,7 +46,7 @@ const ServiceSection = () => {
       </div>
       <div className={styles.service}>
         <h2>Technical Support</h2>
-        <p>Technical support involves providing troubleshooting, problem-solving, and guidance to users facing technical issuest</p>
+        <p>Technical support involves providing troubleshooting, problem-solving, and guidance to users facing technical issues.</p>
         <button className={styles.readMoreButton}>Learn More</button>
       </div>
     </div>

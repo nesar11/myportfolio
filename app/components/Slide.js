@@ -8,10 +8,10 @@ import Typewriter from 'typewriter-effect';
 const Slide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    '/assets/images/slides/slide02.jpg',
-    '/assets/images/slides/slide01.jpg',
     '/assets/images/slides/slide00.png',
- ];
+    '/assets/images/slides/1slide.png',
+    '/assets/images/slides/slide01.jpg',
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,7 +19,7 @@ const Slide = () => {
     }, 10000); // Transition every 10 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]); // Add slides.length as a dependency
 
   return (
     <div className={styles.slide}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PhotoGallery.module.scss'; // Assuming you'll use SCSS for styling
-
+import Image from 'next/image';
 const PhotoGallery = () => {
   // Replace with actual image URLs or import images as needed
   const images = [
@@ -25,7 +25,7 @@ const PhotoGallery = () => {
       <div className={styles.galleryContainer}>
         {images.map((image) => (
           <div key={image.id} className={styles.photoItem}>
-            <img src={image.src} alt={image.alt} />
+            <Image src={image.src} alt={image.alt} />
             <div className={styles.photoTitle}>{image.title}</div>
           </div>
         ))}
