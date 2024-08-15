@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import styles from './ContactSection.module.scss';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -102,9 +104,23 @@ const ContactSection = () => {
           <p><strong>Address:</strong> Block A, Dataran Prima Condominium<br />
             Petaling Jaya 47301<br />
             Selangor, Malaysia</p>
-          <p><strong>Email:</strong> nesar.uddin100@gmail.com</p>
-          <p><strong>Phone:</strong> +6 01 128 365140</p>
-          <p><strong>Whatsapp:</strong> +6 01 128 365140</p>
+          <p><strong>Email:</strong>  <a href="mailto:nesar.uddin100@gmail.com">nesar.uddin100@gmail.com</a></p>
+          <p><strong>Phone:</strong>  <a href="tel:+601128365140">+6 01 128 365140</a></p>
+           <div className={styles.iconContainer}>
+            <a href="https://www.linkedin.com/in/nesar-uddin-full-stack-developer-mern-stack/" target="_blank" rel="noopener noreferrer" className="linkedin">
+              <LinkedInIcon fontSize="large" />
+            </a>
+            <a
+              href="https://wa.me/601128365140?text=Hi%20I%20am%20from%20your%20portfolio%20website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp"
+            >
+              <WhatsAppIcon fontSize="large" />
+            </a>
+
+          </div>
+
         </div>
       </div>
     </div>

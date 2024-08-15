@@ -1,10 +1,12 @@
+/* PhotoGallery.module.scss */
+
 .photoGallery {
   margin: 2rem auto;
   padding: 2rem;
   background-color: black;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 100%; /* Ensure the gallery doesn't stretch too wide on large screens */
+  max-width: 1200px; /* Ensure the gallery doesn't stretch too wide on large screens */
 }
 
 .photoGallery h1 {
@@ -16,7 +18,7 @@
 
 .galleryContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
   gap: 15px; 
   justify-items: center; 
   width: 100%; 
@@ -54,25 +56,13 @@
   transform: scale(1.2);
 }
 
-.photoInfo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.icon {
- 
-  color: #333;
-  z-index: 1;
-  
-}
-
 .photoTitle {
+  margin-top: 10px;
   font-size: 1rem;
   text-align: center;
   color: #333;
 }
+
 
 @media (max-width: 768px) {
   .photoGallery h1 {

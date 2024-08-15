@@ -1,4 +1,3 @@
-import AttachFileIcon from '@mui/icons-material/AttachFile';
 import React from 'react';
 import styles from './PhotoGallery.module.scss'; // Assuming you'll use SCSS for styling
 import Image from 'next/image';
@@ -12,7 +11,7 @@ const PhotoGallery = () => {
     { id: 4, src: '/assets/images/pp16.png', alt: 'Photo 16', title: 'Corporate Website', width: 400, height: 300 },
     { id: 5, src: '/assets/images/pp15.png', alt: 'Photo 15', title: 'Corporate Website', width: 400, height: 300 },
     { id: 6, src: '/assets/images/pp14.png', alt: 'Photo 14', title: 'E-commerce', width: 400, height: 300 },
-    { id: 7, src: '/assets/images/pp13.png', alt: 'Photo 13', title: 'Remate Attendance app', width: 400, height: 300 },
+    { id: 7, src: '/assets/images/pp13.png', alt: 'Photo 13', title: 'Remate Attandance app', width: 400, height: 300 },
     { id: 8, src: '/assets/images/pp12.png', alt: 'Photo 12', title: 'Hotel booking app', width: 400, height: 300 },
     { id: 9, src: '/assets/images/pp7.png', alt: 'Photo 7', title: 'Terminal Payment integration', width: 400, height: 300 },
     { id: 10, src: '/assets/images/pp5.png', alt: 'Photo 5', title: 'Food Order', width: 400, height: 300 },
@@ -27,16 +26,13 @@ const PhotoGallery = () => {
       <div className={styles.galleryContainer}>
         {images.map((image) => (
           <div key={image.id} className={styles.photoItem}>
-            {/* <AttachFileIcon className={styles.icon} /> */}
             <Image 
               src={image.src} 
               alt={image.alt} 
               width={image.width} 
               height={image.height} 
             />
-            <div className={styles.photoInfo}>
-              <div className={styles.photoTitle}>{image.title}</div>
-            </div>
+            <div className={styles.photoTitle}>{image.title}</div>
           </div>
         ))}
       </div>

@@ -1,69 +1,108 @@
 .contactSection {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.contactHeader {
+  text-align: center;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 3rem;
+    color: #acacac;
   }
-  
-  .contactHeader {
-    text-align: center;
-    margin-bottom: 20px;
-  
-    h1 {
-      font-size: 3rem;
-     color:  #acacac;
-    }
+}
+
+.contactContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.formContainer, .contactDetails {
+  flex: 1 0 calc(40% - 20px);
+  margin: 10px;
+  padding: 20px;
+  background-color: #e2e2e2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contactDetails {
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
   }
-  
-  .contactContent {
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.sendButton {
+  width: 150px;
+  margin-top: 15px;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, rgb(189, 2, 2), rgb(2, 154, 192));
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+
+  &:hover {
+    background: linear-gradient(45deg, rgb(6, 1, 247), rgb(183, 0, 255));
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.38);
+  }
+}
+
+.iconContainer {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+
+  a {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .formContainer, .contactDetails {
-    flex: 1 0 calc(40% - 20px);
-    margin: 10px;
-    padding: 20px;
-    background-color: #acacac;
-    
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  }
-  
-  .contactDetails {
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    
-    }
-  }
-  
-  .formGroup {
-    margin-bottom: 15px;
-    
-  }
-  
-  .sendButton {
-    width: 150px;
-    margin-top: 15px;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(45deg, rgb(189, 2, 2), rgb(2, 154, 192));
-    
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     transition: background-color 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
-  
-    &:hover {
-      background: linear-gradient(45deg, rgb(6, 1, 247), rgb(183, 0, 255));
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.38);
+    
+    /* Override default link color */
+    color: inherit;
+    text-decoration: none;
+
+    &.linkedin {
+      background-color: #0077b5; /* LinkedIn blue */
+      
+      &:hover {
+        background-color: #005582; /* Darker LinkedIn blue */
+      }
+    }
+
+    &.whatsapp {
+      background-color: #25d366; /* WhatsApp green */
+      
+      &:hover {
+        background-color: #128c7e; /* Darker WhatsApp green */
+      }
     }
   }
-  
-  @media (max-width: 768px) {
-    .formContainer, .contactDetails {
-      flex: 1 0 calc(100% - 20px);
-    }
+}
+
+
+@media (max-width: 768px) {
+  .formContainer, .contactDetails {
+    flex: 1 0 calc(90% - 30px);
   }
-  
+}
+
+@media (max-width: 480px) {
+  .formContainer, .contactDetails {
+    flex: 1 0 calc(90% - 30px);
+    color: #fff;
+  }
+}
