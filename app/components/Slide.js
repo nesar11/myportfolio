@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import styles from './Slide.module.scss';
@@ -7,45 +7,71 @@ import Typewriter from 'typewriter-effect';
 
 const Slide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Slides array with specific overlay content for each slide
   const slides = [
-    '/assets/images/slides/slide00.png',
-    '/assets/images/slides/1slide.png',
-    '/assets/images/slides/slide01.jpg',
+    {
+      image: '/assets/images/slides/slide003.webp',
+      title: 'Showcasing Full Stack Development Expertise',
+      description: `Demonstrating proficiency in front-end and back-end 
+      technologies to build dynamic and robust applications.`
+    },
+    {
+      image: '/assets/images/slides/slide00.png',
+      title: 'Building Scalable and High-Performance Web Applications',
+      description: `Developing scalable, high-performance solutions optimized 
+      for user experience and business growth.`
+    },
+   
+    {
+      image: '/assets/images/slides/slide01.jpg',
+      title: 'Innovative Problem-Solving with Cutting-Edge Technology',
+      description: `Leveraging modern tools and technologies to create innovative 
+      solutions for complex challenges.`
+    }
   ];
-
+  
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 10000); // Transition every 10 seconds
+    }, 15000); // 15-second interval
 
     return () => clearInterval(interval);
-  }, [slides.length]); // Add slides.length as a dependency
+  }, [slides.length]);
 
   return (
     <div className={styles.slide}>
-      <div className={styles.fullWidthImage}>
-        <div className={`${styles.slideImage} ${styles.active}`} style={{ backgroundImage: `url(${slides[currentSlide]})` }}>
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`${styles.slideItem} ${index === currentSlide ? styles.active : ''}`}
+          style={{ backgroundImage: `url(${slide.image})` }}
+        >
           <Image
-            src={slides[currentSlide]}
-            alt={`Slide Image ${currentSlide + 1}`}
+            src={slide.image}
+            alt={`Slide Image ${index + 1}`}
             layout="fill"
             objectFit="cover"
           />
+          {/* Overlay Content - Only active slide content is displayed */}
+          {index === currentSlide && (
+            <div className={styles.videoOverlay}>
+              <h1 className={styles.videoText}>
+                <Typewriter
+                  options={{
+                    strings: [slide.title],
+                    autoStart: true,
+                    loop: false,
+                  }}
+                />
+              </h1>
+              <p className={styles.videoText}>{slide.description}</p>
+              {/* <button className={styles.readMoreButton}>Read more</button> */}
+            </div>
+          )}
         </div>
-      </div>
-      <div className={styles.videoOverlay}>
-        <h1 className={styles.videoText}>
-          <Typewriter
-            options={{
-              strings: ['I AM A FULL STACK DEVELOPER'],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </h1>
-        <p className={styles.videoText}>I work on both the front-end and back-end with database aspects of web development process agile methodology</p>
-        <button className={styles.readMoreButton}>Read more</button>
-      </div>
+      ))}
     </div>
   );
 };

@@ -12,7 +12,7 @@
   width: 100%;
   font-size: 3rem;
   margin-bottom: 40px;
-  color: #fcc205; 
+  color: #f3f709; 
   z-index: 1000;
   h1{
     font-size: 3rem;
@@ -29,13 +29,13 @@
   color: #333; /* Text color */
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
   // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.28);
-  box-shadow: 0 0 20px rgba(243, 199, 3, 0.705), 0 0 50px rgba(243, 199, 3, 0.705), 0 0 100px rgba(243, 199, 3, 0.705);
+  box-shadow: linear-gradient(45deg, rgb(6, 1, 247), rgb(183, 0, 255));
 }
 
 .service:hover {
   color: #e9e9e9;
   transform: translateY(-5px); 
-  background-color: #7e6103;
+  background-color: #7e036e;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.51);
 }
 

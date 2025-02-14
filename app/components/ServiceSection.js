@@ -5,6 +5,11 @@ const ServiceSection = () => {
     <div className={styles.serviceSection}>
       <h1 className={styles.sectionHeader}>Services</h1>
       <div className={styles.service}>
+        <h2>UI & UX</h2>
+        <p>Software design that focuses on enhancing the usability, effectiveness, and overall satisfaction of users interacting with a digital product, such as a website, mobile app, or software application.</p>
+        <button className={styles.readMoreButton}>Learn More</button>
+      </div>
+      <div className={styles.service}>
         <h2>Web Developement</h2>
         <p>Are you looking for expert web development services tailored to your unique needs? Look no further! With over 7 years of experience in the industry, I specialize in delivering top-notch web development solutions.</p>
         <button className={styles.readMoreButton}>Learn More</button>
@@ -25,15 +30,11 @@ const ServiceSection = () => {
         <button className={styles.readMoreButton}>Learn More</button>
       </div>
       <div className={styles.service}>
-        <h2>Devops</h2>
+        <h2>DeVops</h2>
         <p>I assist clients streamline their software development and delivery processes, improve productivity, and ensure the stability and reliability of their applications.</p>
         <button className={styles.readMoreButton}>Learn More</button>
       </div>
-      <div className={styles.service}>
-        <h2>UI & UX</h2>
-        <p>Software design that focuses on enhancing the usability, effectiveness, and overall satisfaction of users interacting with a digital product, such as a website, mobile app, or software application.</p>
-        <button className={styles.readMoreButton}>Learn More</button>
-      </div>
+   
       <div className={styles.service}>
         <h2>QA Engineering</h2>
         <p>Plays a vital role in the software development lifecycle by designing and implementing test plans, identifying and reporting bugs, and working closely with developers to resolve issues.</p>
