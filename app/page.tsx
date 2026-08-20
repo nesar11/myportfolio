@@ -8,27 +8,28 @@ import About from './components/About';
 import SkillSection from './components/SkillSection';
 import Footer from './components/Footer';
 import ServiceSection from './components/ServiceSection';
+import styles from './index.module.scss';
 
 const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <div id="slide" style={{ marginBottom: '100px' }}>
+      <div id="slide" className={styles.heroSection}>
         <Slide />
       </div>
-      <div id="about" style={{  marginBottom: '100px', marginTop: '100' }}>
+      <div id="about" className={styles.section}>
         <About />
       </div>
-      <div id="skill" style={{  marginBottom: '100px', marginTop: '100' }}>
+      <div id="skill" className={styles.section}>
         <SkillSection />
       </div>
-      <div id="services" style={{  marginBottom: '100px', marginTop: '100px' }}>
+      <div id="services" className={styles.section}>
         <ServiceSection />
       </div>
-      <div id="gallery" style={{  marginBottom: '100px', marginTop: '100px' }}>
+      <div id="gallery" className={styles.section}>
         <PhotoGallery />
       </div>
-      <div id="contact" style={{  marginBottom: '120px', marginTop: '120px'}}>
+      <div id="contact" className={styles.lastSection}>
         <ContactSection />
       </div>
       <Footer />

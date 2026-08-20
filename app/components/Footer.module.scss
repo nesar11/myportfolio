@@ -14,4 +14,9 @@
     font-size: 0.9rem;
     margin: 0;
   }
+
+  :global(body[data-theme='light']) .footer {
+    background-color: #e5e7eb;
+    color: #111827;
+  }
   

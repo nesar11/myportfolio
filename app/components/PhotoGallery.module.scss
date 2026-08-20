@@ -1,112 +1,370 @@
 .photoGallery {
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: black;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 100%; /* Ensure the gallery doesn't stretch too wide on large screens */
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 76px 50px;
+  overflow: hidden;
+  background: #181818;
 }
 
-.photoGallery h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #ca7302;
+.sectionIntro {
+  display: grid;
+  margin-bottom: 28px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 30px;
+  align-items: end;
+}
+
+.sectionIntro span {
+  display: inline-flex;
+  width: max-content;
+  min-height: 32px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 14px;
+  border: 1px solid rgba(0, 198, 247, 0.45);
+  border-radius: 999px;
+  color: #00c6f7;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.sectionIntro h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.15rem, 4vw, 3.55rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.sectionIntro p {
+  margin: 0;
+  color: #ffc46b;
+  font-size: 1.03rem;
+  font-weight: 600;
+  line-height: 1.75;
 }
 
 .galleryContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
-  gap: 15px; 
-  justify-items: center; 
-  width: 100%; 
-  margin: 0 auto; 
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.photoItem {
+.projectCard {
   display: flex;
+  min-width: 0;
+  min-height: 100%;
   flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.projectCard:hover {
+  border-color: rgba(250, 135, 5, 0.7);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+  transform: translateY(-6px);
+}
+
+.imageFrame {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 252px;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #fcfaf9; 
-  color: #333; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
-  margin: 15px; 
+  padding: 18px;
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0, 198, 247, 0.16), transparent 38%),
+    #050505;
+  cursor: zoom-in;
 }
 
-.photoItem img {
-  width: 100%; 
-  height: auto;
+.imageFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.45));
+  transition: transform 0.35s ease;
+}
+
+.projectCard:hover .imageFrame img {
+  transform: scale(1.045);
+}
+
+.projectNumber {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  min-width: 42px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.projectInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.titleRow {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.titleRow span {
   display: block;
-  transition: transform 0.3s ease;
+  margin-bottom: 8px;
+  color: #fa8705;
+  font-size: 0.82rem;
+  font-weight: 900;
 }
 
-.photoItem:hover {
-  background-color: rgb(248, 173, 146);
-  transform: scale(1.05);
-  cursor: pointer;
+.titleRow h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.22rem;
+  line-height: 1.28;
 }
 
-.photoItem img:hover {
-  transform: scale(1.2);
+.titleRow svg {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  color: #00c6f7;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.photoInfo {
+.projectCard:hover .titleRow svg {
+  color: #fa8705;
+  transform: translate(3px, -3px);
+}
+
+.projectInfo p {
+  margin: 16px 0 20px;
+  color: #d9d9d9;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tagList span {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid rgba(250, 135, 5, 0.34);
+  border-radius: 999px;
+  background: rgba(250, 135, 5, 0.1);
+  color: #ffb347;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  padding: 28px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
 }
 
-.icon {
- 
-  color: #333;
-  z-index: 1;
-  
+.dialog {
+  position: relative;
+  width: min(100%, 1500px);
+  max-height: calc(100vh - 56px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: #090909;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.58);
 }
 
-.photoTitle {
-  font-size: 1rem;
-  text-align: center;
-  color: #333;
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
-@media (max-width: 768px) {
-  .photoGallery h1 {
-    font-size: 2.5rem;
+.closeButton:hover {
+  background: #fa8705;
+  color: #120c05;
+  transform: scale(1.05);
+}
+
+.closeButton svg {
+  width: 25px;
+  height: 25px;
+}
+
+.dialogImageWrap {
+  display: flex;
+  max-height: calc(100vh - 156px);
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(0, 198, 247, 0.16), transparent 34%),
+    #050505;
+}
+
+.dialogImageWrap img {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 156px);
+  object-fit: contain;
+}
+
+.dialogCaption {
+  display: flex;
+  min-height: 82px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: #111111;
+}
+
+.dialogCaption span {
+  color: #fa8705;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.dialogCaption h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  line-height: 1.25;
+}
+
+:global(body[data-theme='light']) .photoGallery {
+  background: #eef0f3;
+}
+
+:global(body[data-theme='light']) .sectionIntro h1,
+:global(body[data-theme='light']) .titleRow h2 {
+  color: #111827;
+}
+
+:global(body[data-theme='light']) .sectionIntro p,
+:global(body[data-theme='light']) .projectInfo p {
+  color: #475467;
+}
+
+:global(body[data-theme='light']) .projectCard {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+}
+
+:global(body[data-theme='light']) .imageFrame {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0, 198, 247, 0.12), transparent 38%),
+    #f7f8fa;
+}
+
+:global(body[data-theme='light']) .tagList span {
+  border-color: rgba(217, 119, 6, 0.55);
+  background: rgba(217, 119, 6, 0.14);
+  color: #d97706;
+}
+
+@media (max-width: 1080px) {
+  .galleryContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .photoItem {
-    margin: 10px;
+@media (max-width: 820px) {
+  .sectionIntro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .photoGallery {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 
   .galleryContainer {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: 1fr;
   }
 
-  .photoTitle {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .photoGallery h1 {
-    font-size: 2rem;
+  .imageFrame {
+    height: 220px;
+    padding: 12px;
   }
 
-  .photoItem {
-    margin: 8px;
-    padding: 10px;
+  .projectInfo {
+    padding: 18px;
   }
 
-  .galleryContainer {
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); 
+  .dialogBackdrop {
+    padding: 12px;
   }
 
-  .photoTitle {
-    font-size: 0.8rem;
+  .dialog {
+    max-height: calc(100vh - 24px);
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .dialogImageWrap,
+  .dialogImageWrap img {
+    max-height: calc(100vh - 126px);
+  }
+
+  .dialogCaption {
+    min-height: 78px;
+    padding: 14px 16px;
   }
 }

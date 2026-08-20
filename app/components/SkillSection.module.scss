@@ -1,182 +1,212 @@
-.serviceSection {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap; /* Allows services to wrap to the next line on smaller screens */
-    justify-content: space-between;
-    padding: 20px;
-    margin: auto;
-    text-align: center;
-    // background-color: black;
+.skillSection {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 76px 50px;
+  overflow: hidden;
+  background: #151515;
+}
+
+.sectionIntro {
+  display: grid;
+  margin-bottom: 26px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 30px;
+  align-items: end;
+}
+
+.sectionIntro span {
+  display: inline-flex;
+  width: max-content;
+  min-height: 32px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 14px;
+  border: 1px solid rgba(0, 198, 247, 0.45);
+  border-radius: 999px;
+  color: #00c6f7;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.sectionIntro h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.15rem, 4vw, 3.55rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.sectionIntro p {
+  margin: 0;
+  color: #ffc46b;
+  font-size: 1.03rem;
+  font-weight: 600;
+  line-height: 1.75;
+}
+
+.statsBar {
+  display: grid;
+  margin-bottom: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.statsBar div {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.statsBar div + div {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.skillCard {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skillCard:hover {
+  border-color: rgba(250, 135, 5, 0.7);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
+  transform: translateY(-6px);
+}
+
+.cardHeader h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 1.28rem;
+  line-height: 1.25;
+}
+
+.cardHeader p {
+  margin: 0 0 20px;
+  color: #d9d9d9;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.toolItem {
+  display: flex;
+  min-width: 0;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+  color: #ffffff;
+}
+
+.toolItem svg {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  color: #fa8705;
+}
+
+.toolItem span {
+  overflow-wrap: anywhere;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.15;
+}
+
+:global(body[data-theme='light']) .skillSection {
+  background: #eef0f3;
+}
+
+:global(body[data-theme='light']) .sectionIntro h1,
+:global(body[data-theme='light']) .cardHeader h2,
+:global(body[data-theme='light']) .toolItem span,
+:global(body[data-theme='light']) .statsBar div {
+  color: #111827;
+}
+
+:global(body[data-theme='light']) .sectionIntro p,
+:global(body[data-theme='light']) .cardHeader p {
+  color: #475467;
+}
+
+:global(body[data-theme='light']) .statsBar,
+:global(body[data-theme='light']) .skillCard {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+}
+
+:global(body[data-theme='light']) .toolItem {
+  border-color: rgba(15, 23, 42, 0.1);
+  background: #f7f8fa;
+}
+
+@media (max-width: 1080px) {
+  .skillGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  .sectionHeader {
+}
+
+@media (max-width: 820px) {
+  .sectionIntro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .skillSection {
     width: 100%;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    color: #00c6f7;
-    z-index: 1000;
-    h1{
-      font-size: 3rem;
-      
-     
-    }
+    padding-right: 16px;
+    padding-left: 16px;
   }
-  
-  .service {
-    flex: 1 0 calc(29% - 10px); /* Adjust width for responsive design; subtracting margin */
-    margin: 10px;
-    padding: 20px;
-   
-    // border-radius: 50%;
-    // border-radius: 35px 35px 35px 35px; 
-    // background-color: #0ac7f7; 
-    border-radius: 5%;
-    border: 3px solid white;
-    color: #333; /* Text color */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    // box-shadow: 0 0 20px rgba(1, 103, 187, 0.75), 0 0 50px rgba(1, 103, 187, 0.75), 0 0 100px rgba(1, 103, 187, 0.75);
-    
+
+  .statsBar {
+    grid-template-columns: 1fr;
   }
-  
-  .service:hover {
-    color: #dddddd; 
-    transform: translateY(-5px); 
-    background-color: #00c6f7; 
-    
+
+  .statsBar div + div {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 0;
   }
-  
-  .service h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #c9f0fa;
-   
+
+  .skillGrid {
+    grid-template-columns: 1fr;
   }
-  
-  .service p {
-    line-height: 1.6;
+
+  .toolGrid {
+    grid-template-columns: 1fr;
   }
-  
-  .readMoreButton {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(45deg, rgb(247, 1, 1), rgb(2, 203, 253)); 
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
-  }
-  
-  .readMoreButton:hover {
-    background: linear-gradient(45deg, rgb(6, 1, 247), rgb(183, 0, 255));
-    box-shadow: 0 5px 15px rgba(247, 247, 247, 0.38);
-  }
-  // .iconContainer {
-  //   display: flex;
-  //   justify-content: center;
-  //   gap: 15px;
-  //   flex-wrap: wrap;
-  // }
-  
-  // .iconItem {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   border: 2px solid #da4703;
-  //   padding: 10px;
-  //   border-radius: 10px;
-  //   width: 100px;
-    
-  //   text-align: center;
-  // }
-  
-  // .iconItem span {
-  //   margin-top: 5px;
-  //   font-size: 17px;
-  //   font-weight: bold;
-  //   color: #525151;
-  // }
-  .iconContainer {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-  
-  .iconItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-    padding: 10px;
-    border-radius: 10px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-  }
-  
-  .iconItem span {
-    margin-top: 5px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #525151;
-  }
-  
-  /* Different hover background colors for each icon */
-  .iconItem:nth-child(1):hover {
-    background-color: #e9b6c5; 
-    cursor: pointer;
-  }
-  
-  .iconItem:nth-child(2):hover {
-    background-color: #b2fcdf; 
-    cursor: pointer;
-  }
-  
-  .iconItem:nth-child(3):hover {
-    background-color: #a6d5f7;
-    cursor: pointer; 
-  }
-  
-  .iconItem:nth-child(4):hover {
-    background-color: #fae4c4; 
-    cursor: pointer;
-  }
-  
-  .iconItem:nth-child(5):hover {
-    background-color: #bffafc; 
-    cursor: pointer;
-  }
-  
-  /* Hover effect: slightly enlarges the box and adds a shadow */
-  .iconItem:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  @media (max-width: 768px) {
-    .service {
-      flex: 1 0 calc(45% - 20px); 
-      margin-bottom: 30px;
-      margin: auto;
-      p{
-        font-size: 16px;
-      }
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .service {
-      flex: 1 0 calc(95% - 30px); 
-      margin-bottom: 30px;
-      margin-right: 20px;
-      p{
-        font-size: 16px;
-      }
-    }
-  }
-  
+}

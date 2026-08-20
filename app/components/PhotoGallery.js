@@ -1,130 +1,231 @@
-import AttachFileIcon from '@mui/icons-material/AttachFile';
-import React from 'react';
-import styles from './PhotoGallery.module.scss'; // Assuming you'll use SCSS for styling
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { FiArrowUpRight, FiX } from 'react-icons/fi';
+import styles from './PhotoGallery.module.scss';
+
+const projects = [
+  {
+    id: 1,
+    src: '/assets/images/projects-new/qr-food-court.png',
+    alt: 'QR food ordering system for food court dashboard preview',
+    title: 'QR Food Ordering System',
+    scope: 'Food Court',
+    description:
+      'Multi-stall ordering flow with QR table scan, cart, kitchen queue, and receipt printing support.',
+    tags: ['QR Order', 'Kitchen Flow', 'Payment'],
+    featured: true,
+  },
+  {
+    id: 2,
+    src: '/assets/images/projects-new/qr-food-cafe.png',
+    alt: 'QR food ordering system for food cafe dashboard preview',
+    title: 'QR Food Ordering System',
+    scope: 'Food Cafe',
+    description:
+      'Cafe ordering experience for table service, menu browsing, order tracking, and add-on selection.',
+    tags: ['Cafe Menu', 'Table Order', 'Mobile'],
+  },
+  {
+    id: 3,
+    src: '/assets/images/projects-new/product-loan.png',
+    alt: 'Product loan management system dashboard preview',
+    title: 'Product Loan Management System',
+    scope: 'Loan Operations',
+    description:
+      'Loan application, repayment tracking, customer records, approval flow, and installment visibility.',
+    tags: ['Loan Flow', 'Customers', 'Reports'],
+  },
+  {
+    id: 4,
+    src: '/assets/images/projects-new/property-management.png',
+    alt: 'Property management system dashboard preview',
+    title: 'Property Management System',
+    scope: 'Real Estate',
+    description:
+      'Property, tenant, billing, maintenance, occupancy, and operational tracking for real estate teams.',
+    tags: ['Tenant', 'Billing', 'Maintenance'],
+  },
+  {
+    id: 5,
+    src: '/assets/images/projects-new/hotel-booking.png',
+    alt: 'Hotel booking management system dashboard preview',
+    title: 'Hotel Booking Management System',
+    scope: 'Hospitality',
+    description:
+      'Room calendar, booking status, guest records, check-in flow, and hotel operation dashboards.',
+    tags: ['Booking', 'Rooms', 'Guests'],
+  },
+  {
+    id: 6,
+    src: '/assets/images/projects-new/retail-pos.png',
+    alt: 'Retail POS system dashboard preview',
+    title: 'POS for Retails',
+    scope: 'Retail Sales',
+    description:
+      'Point-of-sale system for retail products, cart handling, receipts, stock movement, and sales flow.',
+    tags: ['POS', 'Inventory', 'Sales'],
+  },
+  {
+    id: 7,
+    src: '/assets/images/projects-new/field-mate.png',
+    alt: 'Field Mate worker tracking system dashboard preview',
+    title: 'Field Mate Worker Tracking',
+    scope: 'Workforce Tracking',
+    description:
+      'Field staff tracking, task updates, attendance visibility, job assignment, and location-aware reporting.',
+    tags: ['Tracking', 'Tasks', 'Attendance'],
+  },
+  {
+    id: 8,
+    src: '/assets/images/projects-new/online-printing.png',
+    alt: 'Online printing service dashboard preview',
+    title: 'Online Printing Service',
+    scope: 'Print Commerce',
+    description:
+      'Online print order flow with design upload, product selection, pricing options, and order management.',
+    tags: ['Upload', 'Checkout', 'Orders'],
+  },
+  {
+    id: 9,
+    src: '/assets/images/projects-new/project-costing.png',
+    alt: 'Project costing and flow management system dashboard preview',
+    title: 'Project Costing and Flow Management',
+    scope: 'Project Finance',
+    description:
+      'Cost estimation, approval workflow, resource planning, project progress, and budget visibility.',
+    tags: ['Costing', 'Workflow', 'Approval'],
+  },
+];
 
 const PhotoGallery = () => {
-  // Replace with actual image URLs or import images as needed
-  const images = [
-    {
-      id: 1,
-      src: '/assets/images/project_1 (1).png',
-      alt: 'Photo 12',
-      title: 'Hotel booking app',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 2,
-      src: '/assets/images/project_1 (2).png',
-      alt: 'Photo 6',
-      title: 'Installment Management System',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 3,
-      src: '/assets/images/project_1 (3).png',
-      alt: 'Photo 15',
-      title: 'Corporate Website',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 4,
-      src: '/assets/images/project_1 (4).png',
-      alt: 'Photo 1',
-      title: ' Corporate Website ',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 5,
-      src: '/assets/images/project_1 (5).png',
-      alt: 'Photo 3',
-      title: 'Retails POS System ',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 6,
-      src: '/assets/images/project_1 (6).png',
-      alt: 'Photo 6',
-      title: 'QR scan Promotion',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 7,
-      src: '/assets/images/project_1 (7).png',
-      alt: 'Photo 14',
-      title: 'QR scan Food Order',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 8,
-      src: '/assets/images/project_1 (8).png',
-      alt: 'Photo 13',
-      title: 'Digital Signage Solution',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 9,
-      src: '/assets/images/project_1 (9).png',
-      alt: 'Photo 9',
-      title: 'Food and Ingredient Order',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 10,
-      src: '/assets/images/project_1 (10).png',
-      alt: 'Photo 5',
-      title: 'Inventory Management System',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 11,
-      src: '/assets/images/project_1 (11).png',
-      alt: 'Photo 4',
-      title: 'Terminal Payment integration',
-      width: 400,
-      height: 300,
-    },
-    {
-      id: 12,
-      src: '/assets/images/project_1 (12).png',
-      alt: 'Photo 12',
-      title: 'Field Assistance Tracking',
-      width: 400,
-      height: 300,
-    },
-    // Add more images as needed
-  ];
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const closeDialog = () => {
+    setSelectedProject(null);
+  };
+
+  useEffect(() => {
+    if (!selectedProject) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeDialog();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProject]);
 
   return (
-    <div className={styles.photoGallery}>
-      <h1>Projects</h1>
+    <section className={styles.photoGallery}>
+      <div className={styles.sectionIntro}>
+        <div>
+          <span>Selected Work</span>
+          <h1>Projects built for real business workflows.</h1>
+        </div>
+        <p>
+          A focused portfolio of ordering, booking, POS, loan, property,
+          workforce, printing, and project management systems designed to make
+          daily operations easier to run.
+        </p>
+      </div>
+
       <div className={styles.galleryContainer}>
-        {images.map((image) => (
-          <div key={image.id} className={styles.photoItem}>
-            {/* <AttachFileIcon className={styles.icon} /> */}
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-            />
-            <div className={styles.photoInfo}>
-              <div className={styles.photoTitle}>{image.title}</div>
+        {projects.map((project) => (
+          <article
+            key={project.id}
+            className={`${styles.projectCard} ${project.featured ? styles.featuredCard : ''}`}
+          >
+            <button
+              type="button"
+              className={styles.imageFrame}
+              onClick={() => setSelectedProject(project)}
+              aria-label={`Open ${project.title} ${project.scope} image fullscreen`}
+            >
+              <Image
+                src={project.src}
+                alt={project.alt}
+                width={900}
+                height={560}
+                sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 33vw"
+              />
+              <div className={styles.projectNumber}>
+                {String(project.id).padStart(2, '0')}
+              </div>
+            </button>
+
+            <div className={styles.projectInfo}>
+              <div className={styles.titleRow}>
+                <div>
+                  <span>{project.scope}</span>
+                  <h2>{project.title}</h2>
+                </div>
+                <FiArrowUpRight aria-hidden="true" />
+              </div>
+
+              <p>{project.description}</p>
+
+              <div className={styles.tagList}>
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+
+      {selectedProject && (
+        <div
+          className={styles.dialogBackdrop}
+          role="presentation"
+          onClick={closeDialog}
+        >
+          <div
+            className={styles.dialog}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${selectedProject.title} ${selectedProject.scope} fullscreen preview`}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className={styles.closeButton}
+              onClick={closeDialog}
+              aria-label="Close fullscreen project image"
+            >
+              <FiX aria-hidden="true" />
+            </button>
+
+            <div className={styles.dialogImageWrap}>
+              <Image
+                src={selectedProject.src}
+                alt={selectedProject.alt}
+                width={1600}
+                height={1000}
+                sizes="100vw"
+                priority
+              />
+            </div>
+
+            <div className={styles.dialogCaption}>
+              <span>{selectedProject.scope}</span>
+              <h2>{selectedProject.title}</h2>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 

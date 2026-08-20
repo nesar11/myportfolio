@@ -12,6 +12,11 @@ const ContactSection = () => {
     message: '',
     service: ''
   });
+  const [formStatus, setFormStatus] = useState({
+    type: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,10 +25,45 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send your message.');
+      }
+
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+        service: ''
+      });
+      setFormStatus({
+        type: 'success',
+        message: 'Thank you. Your message has been sent successfully.'
+      });
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: error.message || 'Something went wrong. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -93,8 +133,23 @@ const ContactSection = () => {
                 rows={4}
               />
             </div>
-            <Button type="submit" variant="contained" color="primary" className={styles.sendButton}>
-              Send
+            {formStatus.message && (
+              <p
+                className={`${styles.formStatus} ${
+                  formStatus.type === 'success' ? styles.success : styles.error
+                }`}
+              >
+                {formStatus.message}
+              </p>
+            )}
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className={styles.sendButton}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send'}
             </Button>
           </form>
         </div>
