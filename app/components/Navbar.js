@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FiDownload, FiMoon, FiSun } from 'react-icons/fi';
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
@@ -51,27 +51,39 @@ const Navbar = () => {
       <div className={styles.logo}>
         <h1>Nesar Uddin</h1>
       </div>
-      <button className={`${styles.hamburger} ${isMenuOpen ? styles.close : ''}`} onClick={toggleMenu}>
-        <span className={styles.hamburgerLine}></span>
-        <span className={styles.hamburgerLine}></span>
-        <span className={styles.hamburgerLine}></span>
-      </button>
       <ul className={`${styles.navList} ${isMenuOpen ? styles.showMenu : ''}`}>
         <li className={styles.navItem}><a href="#slide">Home</a></li>
         <li className={styles.navItem}><a href="#about">About</a></li>
         <li className={styles.navItem}><a href="#skill">Skills</a></li>
-        <li className={styles.navItem}><a href="#services">Services</a></li>
-        <li className={styles.navItem}><a href="#gallery">Portfolio</a></li>
+        <li className={styles.navItem}><a href="#gallery">Projects</a></li>
+        <li className={styles.navItem}><a href="#services">Experience</a></li>
         <li className={styles.navItem}><a href="#contact">Contact</a></li>
+        <li className={`${styles.navItem} ${styles.mobileDownload}`}>
+          <a href="/Nesar-Uddin-Resume.pdf" download>
+            Download CV
+            <FiDownload aria-hidden="true" />
+          </a>
+        </li>
       </ul>
-      <button
-        type="button"
-        className={styles.themeToggle}
-        onClick={toggleTheme}
-        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      >
-        {theme === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
-      </button>
+      <div className={styles.navActions}>
+        <button className={`${styles.hamburger} ${isMenuOpen ? styles.close : ''}`} onClick={toggleMenu}>
+          <span className={styles.hamburgerLine}></span>
+          <span className={styles.hamburgerLine}></span>
+          <span className={styles.hamburgerLine}></span>
+        </button>
+        <button
+          type="button"
+          className={styles.themeToggle}
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+        </button>
+        <a href="/Nesar-Uddin-Resume.pdf" className={styles.downloadButton} download>
+          Download CV
+          <FiDownload aria-hidden="true" />
+        </a>
+      </div>
     </nav>
   );
 };

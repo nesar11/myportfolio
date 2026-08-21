@@ -40,7 +40,16 @@ const ContactSection = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      const responseText = await response.text();
+      let result;
+
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        throw new Error(
+          'Email server is not returning a valid response. Please make sure PHP is enabled on your hosting server.'
+        );
+      }
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || 'Unable to send your message.');
@@ -69,7 +78,7 @@ const ContactSection = () => {
   return (
     <div className={styles.contactSection}>
       <div className={styles.contactHeader}>
-        <h1>Contact Us</h1>
+        <h1>Contact Me</h1>
       </div>
       <div className={styles.contactContent}>
         <div className={styles.formContainer}>

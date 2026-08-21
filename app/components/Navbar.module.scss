@@ -1,61 +1,68 @@
 .navbar {
   position: relative;
   z-index: 1000;
-  display: flex;
-  width: 90%;
-  max-width: 1180px;
-  min-height: 74px;
+  display: grid;
+  width: 100%;
+  min-height: 56px;
   align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
+  padding: 0 5%;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 8, 20, 0.96);
   color: #ffffff;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .navbar.fixed {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  max-width: none;
-  padding: 0 5%;
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
-}
-
-.logo {
-  flex: 0 0 auto;
+  background: rgba(5, 8, 20, 0.94);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px);
 }
 
 .logo h1 {
   margin: 0;
-  color: #ffffff;
-  font-size: 1.45rem;
+  color: #8b5cf6;
+  font-size: 1.28rem;
+  font-weight: 950;
   line-height: 1;
 }
 
 .hamburger {
   display: none;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
-  border: none;
-  background: transparent;
+  gap: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
   cursor: pointer;
+  transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.hamburger:hover {
+  border-color: #704bff;
+  background: rgba(112, 75, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .hamburgerLine {
   display: block;
-  width: 100%;
+  width: 18px;
   height: 2px;
-  background-color: #d6d6d6;
+  border-radius: 999px;
+  background-color: #e5e7eb;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .hamburger.close .hamburgerLine:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .hamburger.close .hamburgerLine:nth-child(2) {
@@ -63,148 +70,258 @@
 }
 
 .hamburger.close .hamburgerLine:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .navList {
   display: flex;
+  min-width: 0;
   align-items: center;
-  gap: 28px;
+  justify-content: center;
+  gap: 34px;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.navItem {
-  margin: 0;
-}
-
 .navItem a {
-  color: #d6d6d6;
+  position: relative;
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  color: #f8fafc;
+  font-size: 0.92rem;
+  font-weight: 800;
   text-decoration: none;
-  font-weight: 700;
-  transition: color 0.3s ease;
+  white-space: nowrap;
+  transition: color 0.22s ease;
 }
 
+.navItem a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 999px 999px 0 0;
+  background: transparent;
+  content: "";
+  transition: background-color 0.22s ease;
+}
+
+.navItem:first-child a,
 .navItem a:hover {
-  color: #fa8705;
+  color: #a78bfa;
+}
+
+.navItem:first-child a::after,
+.navItem a:hover::after {
+  background: #704bff;
+}
+
+.mobileDownload {
+  display: none;
+}
+
+.navActions {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.downloadButton {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #8b5cf6, #5c3df2);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(92, 61, 242, 0.22);
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.downloadButton:hover {
+  box-shadow: 0 10px 24px rgba(92, 61, 242, 0.3);
+  transform: translateY(-1px);
+}
+
+.downloadButton svg {
+  width: 16px;
+  height: 16px;
 }
 
 .themeToggle {
   display: inline-flex;
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  margin-left: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.36);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
   cursor: pointer;
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 
 .themeToggle:hover {
-  border-color: #fa8705;
-  background: #fa8705;
-  color: #120c05;
-  transform: translateY(-2px);
+  border-color: #704bff;
+  background: rgba(112, 75, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .themeToggle svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
-:global(body[data-theme='light']) .navbar:not(.fixed) {
-  color: #f8fafc;
-}
-
-:global(body[data-theme='light']) .navbar:not(.fixed) .logo h1,
-:global(body[data-theme='light']) .navbar:not(.fixed) .navItem a {
-  color: #f8fafc;
-  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
-}
-
-:global(body[data-theme='light']) .navbar:not(.fixed) .navItem a:hover {
-  color: #ffb347;
-}
-
-:global(body[data-theme='light']) .navbar:not(.fixed) .hamburgerLine {
-  background-color: #f8fafc;
-}
-
-:global(body[data-theme='light']) .navbar:not(.fixed) .themeToggle {
-  border-color: rgba(255, 255, 255, 0.34);
-  background: rgba(0, 0, 0, 0.34);
-  color: #ffffff;
-}
-
-:global(body[data-theme='light']) .navbar.fixed {
+:global(body[data-theme='light']) .navbar {
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.96);
   color: #111827;
 }
 
 :global(body[data-theme='light']) .navbar.fixed {
-  background-color: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
 }
 
-:global(body[data-theme='light']) .logo h1,
 :global(body[data-theme='light']) .navItem a {
   color: #111827;
 }
 
+:global(body[data-theme='light']) .navItem:first-child a,
 :global(body[data-theme='light']) .navItem a:hover {
-  color: #d97706;
+  color: #704bff;
 }
 
 :global(body[data-theme='light']) .themeToggle {
-  border-color: rgba(15, 23, 42, 0.18);
-  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(15, 23, 42, 0.14);
+  background: rgba(15, 23, 42, 0.04);
   color: #111827;
 }
 
-:global(body[data-theme='light']) .themeToggle:hover {
-  border-color: #d97706;
-  background: #d97706;
-  color: #ffffff;
+:global(body[data-theme='light']) .hamburger {
+  border-color: rgba(15, 23, 42, 0.14);
+  background: rgba(15, 23, 42, 0.04);
 }
 
-@media (max-width: 1024px) {
-  .navbar {
-    width: 100%;
-    padding: 0 22px;
-  }
+:global(body[data-theme='dark']) .logo h1 {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+  background-clip: text;
+  color: transparent;
+}
 
-  .navbar.fixed {
+:global(body[data-theme='dark']) .navItem:first-child a,
+:global(body[data-theme='dark']) .navItem a:hover {
+  color: #fbbf24;
+}
+
+:global(body[data-theme='dark']) .navItem:first-child a::after,
+:global(body[data-theme='dark']) .navItem a:hover::after {
+  background: linear-gradient(90deg, #fbbf24, #f97316);
+}
+
+:global(body[data-theme='dark']) .downloadButton {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.22);
+  color: #111827;
+}
+
+:global(body[data-theme='dark']) .downloadButton:hover {
+  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.3);
+}
+
+:global(body[data-theme='dark']) .themeToggle:hover {
+  border-color: #fbbf24;
+  background: rgba(251, 191, 36, 0.16);
+}
+
+:global(body[data-theme='dark']) .hamburger:hover {
+  border-color: #fbbf24;
+  background: rgba(251, 191, 36, 0.16);
+}
+
+@media (max-width: 1180px) {
+  .navbar {
+    grid-template-columns: auto 1fr auto;
+    justify-content: space-between;
     padding: 0 22px;
+    gap: 16px;
   }
 
   .hamburger {
     display: flex;
-    margin-left: auto;
   }
 
   .navList {
     position: fixed;
-    top: 74px;
+    top: 56px;
     left: 0;
     display: none;
     width: 100%;
-    height: calc(100vh - 74px);
+    height: calc(100vh - 56px);
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.94);
+    gap: 18px;
+    background-color: rgba(5, 8, 20, 0.97);
   }
 
   .navList.showMenu {
     display: flex;
   }
 
-  .themeToggle {
-    margin-left: 12px;
+  .navItem a {
+    min-height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .navActions .downloadButton {
+    display: none;
+  }
+
+  .navActions {
+    margin-left: auto;
+    gap: 10px;
+  }
+
+  .mobileDownload {
+    display: block;
+  }
+
+  .mobileDownload a {
+    min-height: 42px;
+    gap: 8px;
+    padding: 0 18px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #8b5cf6, #5c3df2);
+    box-shadow: 0 10px 24px rgba(92, 61, 242, 0.22);
+    color: #ffffff;
+  }
+
+  .mobileDownload a::after {
+    display: none;
+  }
+
+  .mobileDownload svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  :global(body[data-theme='dark']) .mobileDownload a {
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    box-shadow: 0 10px 24px rgba(249, 115, 22, 0.22);
+    color: #111827;
   }
 
   :global(body[data-theme='light']) .hamburgerLine {
@@ -212,6 +329,6 @@
   }
 
   :global(body[data-theme='light']) .navList {
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(255, 255, 255, 0.98);
   }
 }

@@ -15,10 +15,15 @@ body[data-theme='light'] {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 img {

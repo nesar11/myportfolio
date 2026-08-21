@@ -8,24 +8,24 @@ import styles from './Slide.module.scss';
 const slides = [
   {
     image: '/assets/images/hero/full-stack-workspace.png',
-    eyebrow: 'Full Stack Developer',
-    title: 'Building reliable business systems from idea to production.',
+    eyebrow: 'Full Stack Engineer',
+    title: 'Nesar Uddin',
     description:
-      'Over 9 years of experience delivering web apps, dashboards, integrations, APIs, and scalable platforms across real business workflows.',
+      'Node.js, Next.js, React and MERN Stack specialist building scalable SaaS, ERP, POS, hospitality, cloud and DevOps solutions.',
   },
   {
     image: '/assets/images/hero/business-systems.png',
     eyebrow: 'Product Engineering',
-    title: 'Custom software for ordering, booking, POS, property, loans, and operations.',
+    title: 'Business Software',
     description:
-      'I design and develop practical systems that help teams manage orders, customers, payments, bookings, projects, and field work with clarity.',
+      'Custom systems for POS, ordering, booking, property, loans, and operations.',
   },
   {
     image: '/assets/images/hero/devops-cloud.png',
     eyebrow: 'DevOps and Delivery',
-    title: 'Modern applications built for performance, deployment, and growth.',
+    title: 'Cloud Ready Apps',
     description:
-      'From frontend experience to backend architecture, cloud setup, CI/CD, and support, I focus on solutions that stay maintainable after launch.',
+      'Frontend, backend, APIs, deployment, and support from one reliable delivery flow.',
   },
 ];
 
@@ -73,6 +73,25 @@ const Slide = () => {
             <a href="#contact">Contact Me</a>
           </div>
         </div>
+
+        {currentSlide === 0 && (
+          <div className={styles.profileShowcase} aria-label="Nesar Uddin profile photo">
+            <div className={styles.profileRing}>
+              <Image
+                src="/assets/images/me.png"
+                alt="Nesar Uddin"
+                width={420}
+                height={420}
+                priority
+                className={styles.profileImage}
+              />
+            </div>
+            <div className={styles.profileBadge}>
+              <strong>Full Stack Developer</strong>
+              <span>DevOps | UI & UX | Product Builder</span>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className={styles.controls} aria-label="Slide controls">

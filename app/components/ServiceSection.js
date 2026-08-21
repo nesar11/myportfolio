@@ -1,13 +1,21 @@
 import {
+  FaRocket,
+} from 'react-icons/fa';
+import {
   FiCloud,
   FiCode,
+  FiClipboard,
+  FiCpu,
   FiDatabase,
+  FiEdit3,
   FiLayers,
   FiLifeBuoy,
   FiMonitor,
+  FiPenTool,
   FiRepeat,
   FiShield,
   FiUsers,
+  FiZap,
 } from 'react-icons/fi';
 import styles from './ServiceSection.module.scss';
 
@@ -25,6 +33,13 @@ const services = [
     description:
       'Custom web applications for ordering, booking, retail, property, loan, printing, and operational workflows.',
     points: ['Admin portals', 'Customer portals', 'Business dashboards'],
+  },
+  {
+    title: 'AI Document Processing',
+    Icon: FiCpu,
+    description:
+      'AI-powered document scanning, OCR, data extraction, classification, and workflow automation for business operations.',
+    points: ['OCR text extraction', 'Document classification', 'Automated data entry'],
   },
   {
     title: 'Frontend Development',
@@ -77,28 +92,45 @@ const services = [
   },
 ];
 
-const process = ['Plan', 'Design', 'Develop', 'Deploy', 'Support'];
+const process = [
+  { label: 'Plan', Icon: FiClipboard },
+  { label: 'Design', Icon: FiPenTool },
+  { label: 'Develop', Icon: FiCode },
+  { label: 'Deploy', Icon: FaRocket },
+  { label: 'Support', Icon: FiLifeBuoy },
+];
 
 const ServiceSection = () => {
   return (
     <section className={styles.serviceSection}>
       <div className={styles.sectionIntro}>
-        <span>Services</span>
-        <h1>End-to-end software services for business operations.</h1>
-        <p>
-          From first requirement to production support, I help build practical
-          systems that improve ordering, booking, sales, tracking, reporting,
-          and day-to-day management.
-        </p>
-      </div>
+        <div>
+          <span className={styles.serviceBadge}>
+            <FiZap aria-hidden="true" />
+            Services
+          </span>
+          <h1>
+            End-to-end software services for <strong>business operations.</strong>
+          </h1>
+          <div className={styles.titleLine} />
+          <p>
+            From first requirement to production support, I help build practical
+            systems that improve ordering, booking, sales, tracking, reporting,
+            and day-to-day management.
+          </p>
+        </div>
 
-      <div className={styles.processStrip}>
-        {process.map((item, index) => (
-          <div key={item}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <strong>{item}</strong>
-          </div>
-        ))}
+        <div className={styles.processStrip}>
+          {process.map(({ label, Icon }, index) => (
+            <div key={label}>
+              <span className={styles.processIcon}>
+                <Icon aria-hidden="true" />
+              </span>
+              <small>{String(index + 1).padStart(2, '0')}</small>
+              <strong>{label}</strong>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className={styles.serviceGrid}>

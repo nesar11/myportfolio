@@ -1,82 +1,78 @@
-import Image from 'next/image';
+import { FiCheckCircle, FiCode, FiDatabase, FiLayers, FiMonitor, FiUser } from 'react-icons/fi';
 import styles from './AboutSection.module.scss';
 
-const highlights = [
-  { value: '9+', label: 'Years IT Experience' },
-  { value: 'Full Stack', label: 'Frontend to Backend' },
-  { value: 'DevOps', label: 'Cloud and Delivery' },
+const strengths = [
+  'Full Stack Web Development',
+  'UI & UX Product Workflow',
+  'System Architecture & API Design',
+  'Multi-tenant SaaS Development',
+  'Deployment & Monitoring',
 ];
 
-const specialties = [
-  'Business Web Apps',
-  'QR Ordering Systems',
-  'POS and Payments',
-  'Booking Platforms',
-  'Property Management',
-  'Project Workflows',
+const aboutCards = [
+  {
+    title: 'Frontend Development',
+    text: 'Modern, responsive interfaces using React, Next.js, and clean UI systems.',
+    Icon: FiMonitor,
+    tone: 'green',
+  },
+  {
+    title: 'Backend Engineering',
+    text: 'Robust APIs and business logic with Node.js, NestJS, and scalable architecture.',
+    Icon: FiLayers,
+    tone: 'orange',
+  },
+  {
+    title: 'Database & APIs',
+    text: 'Efficient data models and secure APIs for reliability and performance.',
+    Icon: FiDatabase,
+    tone: 'blue',
+  },
+  {
+    title: 'Problem Solver',
+    text: 'Analytical thinking and clean code to turn complex needs into simple software.',
+    Icon: FiCode,
+    tone: 'purple',
+  },
 ];
 
 const AboutSection = () => {
   return (
     <section className={styles.aboutSection}>
-      <div className={styles.imagePanel}>
-        <div className={styles.imageContainer}>
-          <Image
-            src="/assets/images/about.jpg"
-            alt="Professional software development workspace"
-            width={800}
-            height={600}
-            sizes="(max-width: 900px) 100vw, 45vw"
-            className={styles.aboutImage}
-          />
-        </div>
-
-        <div className={styles.profileCard}>
-          <Image
-            src="/assets/images/me.png"
-            alt="Nesar Uddin"
-            width={92}
-            height={92}
-            className={styles.profileImage}
-          />
-          <div>
-            <h2>Nesar Uddin</h2>
-            <p>Full Stack Developer | DevOps | Product Builder</p>
-          </div>
-        </div>
-      </div>
-
       <div className={styles.textContainer}>
         <span className={styles.eyebrow}>About Me</span>
-        <h1>Senior software developer focused on real business systems.</h1>
+        <h1>Turning business ideas into real software</h1>
         <p className={styles.lead}>
-          I have over 9 years of experience in information technology, building
-          practical software across food ordering, retail POS, hospitality,
-          property, loan, field tracking, printing, and project management
-          workflows.
-        </p>
-        <p>
-          My work covers the full delivery path: UI and UX, frontend
-          development, backend APIs, database design, integrations, deployment,
-          DevOps, and ongoing support. I care about clear user journeys,
-          dependable architecture, and solutions that teams can operate with
-          confidence after launch.
+          I help businesses and startups build complete digital systems, from
+          planning and UI & UX to robust backends, secure databases, deployment,
+          and continuous monitoring.
         </p>
 
-        <div className={styles.statsGrid}>
-          {highlights.map((item) => (
-            <div key={item.label} className={styles.statItem}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
+        <ul className={styles.strengthList}>
+          {strengths.map((item) => (
+            <li key={item}>
+              <FiCheckCircle aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href="#contact" className={styles.aboutButton}>
+          Know More About Me
+          <FiUser aria-hidden="true" />
+        </a>
+      </div>
+
+      <div className={styles.cardGrid}>
+        {aboutCards.map(({ title, text, Icon, tone }) => (
+          <article key={title} className={styles.aboutCard}>
+            <div className={`${styles.iconBox} ${styles[tone]}`}>
+              <Icon aria-hidden="true" />
             </div>
-          ))}
-        </div>
-
-        <div className={styles.specialties}>
-          {specialties.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </div>
+            <h2>{title}</h2>
+            <p>{text}</p>
+          </article>
+        ))}
       </div>
     </section>
   );
