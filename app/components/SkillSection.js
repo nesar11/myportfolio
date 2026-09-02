@@ -17,6 +17,7 @@ import {
   FaRocket,
   FaTrello,
   FaWindows,
+  FaLinux,
 } from 'react-icons/fa';
 import {
   SiAdobexd,
@@ -33,9 +34,17 @@ import {
   SiNestjs,
   SiNetlify,
   SiPostgresql,
+  SiGraphql,
+  SiOracle,
   SiSpringboot,
   SiVercel,
+  SiOdoo,
+  SiMagento,
+  SiWordpress,
+  SiFlutter,
+    
 } from 'react-icons/si';
+
 import { RiNextjsFill } from 'react-icons/ri';
 import { CgWebsite } from 'react-icons/cg';
 import { VscTerminalCmd } from 'react-icons/vsc';
@@ -54,11 +63,11 @@ import {
   FiSmartphone,
   FiZap,
 } from 'react-icons/fi';
-
+import { FaFilePowerpoint } from 'react-icons/fa6';
 const skillGroups = [
   {
     title: 'UI & UX Design',
-    summary: 'Clean flows, wireframes, and simple interfaces.',
+    summary: 'Clean interfaces, wireframes, graphics, and visual presentations.',
     Icon: FiPenTool,
     tools: [
       { name: 'Figma', Icon: SiFigma, color: '#f24e1e' },
@@ -66,6 +75,9 @@ const skillGroups = [
       { name: 'Photoshop', Icon: SiAdobephotoshop, color: '#31a8ff' },
       { name: 'Illustrator', Icon: SiAdobeillustrator, color: '#ff9a00' },
       { name: 'Canva', Icon: SiCanva, color: '#00c4cc' },
+      {
+        name: 'PowerPoint', Icon: FaFilePowerpoint, color: '#d24726',
+      },
     ],
   },
   {
@@ -78,6 +90,7 @@ const skillGroups = [
       { name: 'Next.js', Icon: RiNextjsFill, color: '#000000' },
       { name: 'Angular', Icon: FaAngular, color: '#dd0031' },
       { name: 'Bootstrap', Icon: FaBootstrap, color: '#7952b3' },
+      { name: 'Flutter', Icon: SiFlutter, color: '#02569b' },
     ],
   },
   {
@@ -101,6 +114,7 @@ const skillGroups = [
       { name: 'Android', Icon: FaAndroid, color: '#3ddc84' },
       { name: 'iOS', Icon: FaAppStoreIos, color: '#111827' },
       { name: 'Windows', Icon: FaWindows, color: '#0078d4' },
+      { name: 'Linux', Icon: FaLinux, color: '#f5c211' },
       { name: 'Terminal', Icon: VscTerminalCmd, color: '#111827' },
     ],
   },
@@ -131,18 +145,42 @@ const skillGroups = [
     ],
   },
   {
-    title: 'Data and Delivery',
-    summary: 'Databases, Git, and project workflow.',
+    title: 'Databases ',
+    summary: 'Databases',
     Icon: FiDatabase,
     tools: [
       { name: 'MongoDB', Icon: SiMongodb, color: '#47a248' },
       { name: 'PostgreSQL', Icon: SiPostgresql, color: '#4169e1' },
       { name: 'MySQL', Icon: SiMysql, color: '#4479a1' },
-      { name: 'GitHub', Icon: FaGithub, color: '#111827' },
-      { name: 'GitLab', Icon: FaGitlab, color: '#fc6d26' },
+      { name: 'GraphQL', Icon: SiGraphql, color: '#e10098' },
+      { name: 'Oracle', Icon: SiOracle, color: '#f80000' },
+
+    ],
+  },
+
+
+  {
+    title: 'Project Management',
+    summary: 'Planning, task management, and efficient team delivery.',
+    Icon: FiLayers,
+    tools: [
       { name: 'Jira', Icon: FaJira, color: '#2684ff' },
       { name: 'Asana', Icon: SiAsana, color: '#f06a6a' },
       { name: 'Trello', Icon: FaTrello, color: '#0079bf' },
+      { name: 'GitHub', Icon: FaGithub, color: '#111827' },
+      { name: 'GitLab', Icon: FaGitlab, color: '#fc6d26' },
+    ],
+  },
+  {
+    title: 'Open Source Customization',
+    summary: 'Custom modules, themes, integrations, and platform extensions.',
+    Icon: FiCode,
+    tools: [
+      { name: 'Odoo', Icon: SiOdoo, color: '#714b67' },
+      { name: 'Magento', Icon: SiMagento, color: '#ee672f' },
+      { name: 'WordPress', Icon: SiWordpress, color: '#21759b' },
+      { name: 'Custom APIs', Icon: FiZap, color: '#eab308' },
+      { name: 'System Integration', Icon: FiSettings, color: '#0ea5e9' },
     ],
   },
 ];
